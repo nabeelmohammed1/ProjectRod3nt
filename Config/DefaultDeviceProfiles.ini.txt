@@ -1,0 +1,90 @@
+[DeviceProfiles]
+
+; =========================
+; MAC BASE PROFILE
+; =========================
+[Mac DeviceProfile]
+DeviceType=Mac
+BaseProfileName=
+
+; --- Resolution / GPU load ---
++CVars=r.ScreenPercentage=80
++CVars=r.SecondaryScreenPercentage.GameViewport=80
+
+; --- Scalability (MAIN PERFORMANCE CONTROL) ---
++CVars=sg.ViewDistanceQuality=2
++CVars=sg.AntiAliasingQuality=2
++CVars=sg.ShadowQuality=1
++CVars=sg.GlobalIlluminationQuality=1
++CVars=sg.ReflectionQuality=1
++CVars=sg.PostProcessQuality=1
++CVars=sg.EffectsQuality=1
++CVars=sg.FoliageQuality=1
+
+; --- Shadows (huge cost on Mac) ---
++CVars=r.Shadow.MaxResolution=1024
++CVars=r.Shadow.CSM.MaxCascades=2
++CVars=r.Shadow.Virtual.Enable=0
+
+; --- Lumen optimizations ---
++CVars=r.Lumen.ScreenProbeGather.ScreenTraces=0
++CVars=r.Lumen.Reflections=0
+
+; --- Niagara / VFX ---
++CVars=fx.Niagara.GlobalSpawnCountScale=0.5
+
+; --- Post Processing ---
++CVars=r.MotionBlurQuality=0
++CVars=r.BloomQuality=3
++CVars=r.DepthOfFieldQuality=1
+
+; --- General Rendering ---
++CVars=r.AmbientOcclusionLevels=1
++CVars=r.AmbientOcclusionQuality=50
+
+; =========================
+; MAC PACKAGED BUILD PROFILE
+; =========================
+[MacNoEditor DeviceProfile]
+DeviceType=Mac
+BaseProfileName=Mac
+
+; More aggressive for builds
++CVars=r.ScreenPercentage=75
+
++CVars=sg.ShadowQuality=1
++CVars=sg.GlobalIlluminationQuality=1
++CVars=sg.ReflectionQuality=1
++CVars=sg.PostProcessQuality=1
++CVars=sg.EffectsQuality=0
+
++CVars=fx.Niagara.GlobalSpawnCountScale=0.4
+
+; Extra safety cuts
++CVars=r.MotionBlurQuality=0
++CVars=r.DepthOfFieldQuality=0
+
+; =========================
+; OPTIONAL LOW-END MAC (M1 fallback)
+; =========================
+[Mac_Low DeviceProfile]
+DeviceType=Mac
+BaseProfileName=Mac
+
++CVars=r.ScreenPercentage=65
+
++CVars=sg.ViewDistanceQuality=1
++CVars=sg.AntiAliasingQuality=1
++CVars=sg.ShadowQuality=0
++CVars=sg.GlobalIlluminationQuality=0
++CVars=sg.ReflectionQuality=0
++CVars=sg.PostProcessQuality=0
++CVars=sg.EffectsQuality=0
+
++CVars=fx.Niagara.GlobalSpawnCountScale=0.3
+
++CVars=r.Shadow.MaxResolution=512
++CVars=r.Shadow.CSM.MaxCascades=1
+
++CVars=r.Lumen.Reflections=0
++CVars=r.Lumen.ScreenProbeGather.ScreenTraces=0
